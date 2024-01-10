@@ -19,9 +19,9 @@
 import argparse
 import logging
 
-import case_utils
-from case_utils.local_uuid import local_uuid
+import cdo_local_uuid
 from case_utils.namespace import NS_RDF, NS_UCO_CORE, NS_UCO_IDENTITY, NS_XSD
+from cdo_local_uuid import local_uuid
 from rdflib import Graph, Literal, Namespace
 from rdflib.util import guess_format
 
@@ -53,11 +53,11 @@ def main() -> None:
     args = argument_parser.parse_args()
     logging.basicConfig(level=logging.DEBUG if args.debug else logging.INFO)
 
-    # See case_utils.local_uuid._demo_uuid for how to use this to set up
+    # See cdo_local_uuid._demo_uuid for how to use this to set up
     # a process call that opts in to nonrandom UUIDs.  Opting in is
     # beneficial for generating and version-controlling example runs of
     # this tool, but might not be appropriate for production operation.
-    case_utils.local_uuid.configure()
+    cdo_local_uuid.configure()
 
     # Define Namespace object to assist with generating individual nodes.
     ns_kb = Namespace(args.kb_prefix_iri)

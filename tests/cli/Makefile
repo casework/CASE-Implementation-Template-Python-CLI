@@ -48,7 +48,7 @@ clean:
 example_output.%: \
   $(top_srcdir)/case_cli_example/cli.py \
   $(top_srcdir)/tests/.venv.done.log
-	export CASE_DEMO_NONRANDOM_UUID_BASE="$(top_srcdir)" \
+	export CDO_DEMO_NONRANDOM_UUID_BASE="$(top_srcdir)" \
 	  && source $(top_srcdir)/tests/venv/bin/activate \
 	    && case_cli_example \
 	      _$@
@@ -60,7 +60,7 @@ example_output.%: \
 example_output_debug.%: \
   $(top_srcdir)/case_cli_example/cli.py \
   $(top_srcdir)/tests/.venv.done.log
-	export CASE_DEMO_NONRANDOM_UUID_BASE="$(top_srcdir)" \
+	export CDO_DEMO_NONRANDOM_UUID_BASE="$(top_srcdir)" \
 	  && source $(top_srcdir)/tests/venv/bin/activate \
 	    && case_cli_example \
 	      --debug \
