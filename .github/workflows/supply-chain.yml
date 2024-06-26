@@ -32,7 +32,7 @@ jobs:
           - '3.12'
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         # This enables supply chain review against only a selected
         # branch.  For those using the "Git-Flow" style of branching,
@@ -42,7 +42,7 @@ jobs:
         # https://cyberdomainontology.org/ontology/development/#branching-cdo-git-flow
         ref: main
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
     - name: Review dependencies
