@@ -84,12 +84,12 @@ def main() -> None:
         (n_example_organization, NS_UCO_CORE.name, Literal("Cyber Domain Ontology"))
     )
 
-    # Write output file.
+    # Write output file, defaulting to Turtle format.
     output_format = (
         guess_format(args.out_graph)
         if args.output_format is None
         else args.output_format
-    )
+    ) or "turtle"
     graph.serialize(destination=args.out_graph, format=output_format)
 
 
