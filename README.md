@@ -13,6 +13,8 @@ This is only one possible application development style, and templates are avail
 
 * [casework/CASE-Mapping-Template-Python](https://github.com/casework/CASE-Mapping-Template-Python), which demonstrates an approach based on constructing Python `dict`s and checking generated results afterwards for CASE conformance with the [CASE Validation Action](https://github.com/kchason/case-validation-action).
 
+Other options and considerations for application development are noted on the [CASE Get Started page](https://caseontology.org/ontology/get-started.html).
+
 Testing procedures run in _this_ repository are:
 
 * _GitHub Actions_: [Workflows](.github/workflows/) are defined to run testing as they would be run in a local command-line environment, reviewing on pushes and pull requests to certain branches.

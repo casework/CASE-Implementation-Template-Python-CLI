@@ -77,9 +77,30 @@ def main() -> None:
     # multiple tools contribute to the same graph.
     graph.namespace_manager.bind("xsd", NS_XSD)
 
-    # Generate an example object.
+    # Generate a graph node for an example object.
     n_example_organization = ns_kb["Organization-" + local_uuid()]
+
+    # The graph node is not added to the graph until it is part of some
+    # statement.  A common first statement is a type, denoting
+    # class-membership.  This example object is an organization.  The
+    # class IRI of organization is:
+    #
+    # https://ontology.unifiedcyberontology.org/uco/identity/Organization
+    #
+    # In Python, NS_UCO_IDENTITY.Organization spells this IRI as a
+    # property in an RDFLib Namespace object.
+    #
+    # Visiting that IRI in a browser will show documentation for that class.
+    # The classes in CASE are listed here (and include the classes in UCO):
+    # https://ontology.caseontology.org/documentation/entities-tree-classes.html
     graph.add((n_example_organization, NS_RDF.type, NS_UCO_IDENTITY.Organization))
+
+    # Assign some property for the example object - in this case, the
+    # organization's name.  Other properties available to an object are
+    # viewable in the documentation system noted above, or in "stub"
+    # JSON-LD objects, such as Organization's stub here:
+    #
+    # https://github.com/casework/CASE-Mapping-Template-Stubs/blob/main/templates/uco-identity/Organization.json
     graph.add(
         (n_example_organization, NS_UCO_CORE.name, Literal("Cyber Domain Ontology"))
     )
